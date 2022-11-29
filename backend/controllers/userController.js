@@ -42,6 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 });
 
+// LOGIN USER
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
 
@@ -54,10 +55,23 @@ const loginUser = asyncHandler(async (req, res) => {
             email: user.email,
             token: generateToken(user._id),
         });
+    } else {
+        res.status(401);
+        throw new Error('Invalid Data');
     }
+});
+
+const getMe = asyncHandler(async (req, res) => {
+    const user = {
+        id: req.user._id,
+        email: req.user.email,
+        name: req.user.name,
+    };
+    res.status(200).json(user);
 });
 
 module.exports = {
     registerUser,
     loginUser,
+    getMe,
 };
