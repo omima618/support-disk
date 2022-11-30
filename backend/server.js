@@ -22,6 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // ROUTES
 app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/tickets', require('./routes/ticketRoutes'));
+app.use('/api/tickets', require('./routes/ticketRoutes'));
 app.use(errorHandler);
 
 app.get('/', (req, res) => {
