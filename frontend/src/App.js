@@ -4,8 +4,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import NewTicket from './pages/NewTicket';
+import Tickets from './pages/Tickets';
+import Ticket from './pages/Ticket';
 
 import Header from './components/Header';
+import PrivateRoutes from './components/PrivateRoutes';
 
 const App = () => {
     return (
@@ -17,6 +21,21 @@ const App = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/new-ticket" element={<PrivateRoutes />}>
+                            <Route path="/new-ticket" element={<NewTicket />} />
+                        </Route>
+                        <Route path="/tickets" element={<PrivateRoutes />}>
+                            <Route path="/tickets" element={<Tickets />} />
+                        </Route>
+                        <Route
+                            path="/ticket/:ticketId"
+                            element={<PrivateRoutes />}
+                        >
+                            <Route
+                                path="/ticket/:ticketId"
+                                element={<Ticket />}
+                            />
+                        </Route>
                     </Routes>
                 </div>
             </BrowserRouter>
