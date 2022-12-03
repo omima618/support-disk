@@ -19,7 +19,6 @@ const Tickets = () => {
     // }, [dispatch, isSuccess]);
     useEffect(() => {
         dispatch(getTickets());
-        console.log(tickets);
     }, [dispatch]);
 
     if (isLoading) {
