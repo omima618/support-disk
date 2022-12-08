@@ -9,14 +9,14 @@ const Tickets = () => {
     const { tickets, isSuccess, isLoading } = useSelector(
         (state) => state.ticket
     );
-    // useEffect(() => {
-    //     return () => {
-    //         if (isSuccess) {
-    //             dispatch(ticketActions.reset());
-    //         }
-    //         console.log(tickets);
-    //     };
-    // }, [dispatch, isSuccess]);
+    useEffect(() => {
+        return () => {
+            if (isSuccess) {
+                dispatch(ticketActions.reset());
+            }
+            console.log(tickets);
+        };
+    }, [dispatch, isSuccess]);
     useEffect(() => {
         dispatch(getTickets());
     }, [dispatch]);

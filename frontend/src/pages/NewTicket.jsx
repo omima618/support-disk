@@ -39,7 +39,7 @@ const NewTicket = () => {
             navigate('/tickets');
         }
         dispatch(ticketActions.reset());
-    }, [isLoading, isSuccess, isError, message, dispatch, navigate]);
+    }, [isLoading, isError, message, dispatch, navigate]);
 
     if (isLoading) {
         return <Spinner />;
